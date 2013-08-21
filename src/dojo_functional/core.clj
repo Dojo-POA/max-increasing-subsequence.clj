@@ -16,7 +16,7 @@
   )
 )
 
-(defn max-list [x1 x2]
+(defn longest-list [x1 x2]
   (if 
     (>= (count x1) (count x2))
     x1
@@ -26,11 +26,10 @@
 
 (defn find-increasing-sequence [sqnc] 
   (if (empty? sqnc)
-   (find-increasing-sequence-from-first-element sqnc)
-    (max-list 
-      (find-increasing-sequence-from-first-element sqnc)
-      (find-increasing-sequence (rest sqnc))
-      )
-  )
-  
+   sqnc
+   (longest-list 
+    (find-increasing-sequence-from-first-element sqnc)
+    (find-increasing-sequence (rest sqnc))
+   )
+  )  
 )
